@@ -1,14 +1,14 @@
-var ExampleExtension = function () {
+var cloudExtension = function () {
 };
 
 /**
  * @return {object} This extension's metadata.
  */
-ExampleExtension.prototype.getInfo = function () {
+cloudExtension.prototype.getInfo = function () {
     return {
         // Required: the machine-readable name of this extension.
         // Will be used as the extension's namespace. Must not contain a '.' character.
-        id: 'someBlocks',
+        id: 'cloudExtension',
 
         // Optional: the human-readable name of this extension as string.
         // This and any other string to be displayed in the Scratch UI may either be
@@ -20,7 +20,7 @@ ExampleExtension.prototype.getInfo = function () {
         // internally namespace the messages such that two extensions could have
         // messages with the same ID without colliding.
         // See also: https://github.com/yahoo/react-intl/wiki/API#definemessages
-        name: 'Some Blocks',
+        name: 'Cloud Extension',
 
         // Optional: URI for an icon for this extension. Data URI OK.
         // If not present, use a generic icon.
@@ -30,32 +30,33 @@ ExampleExtension.prototype.getInfo = function () {
 
         // Optional: Link to documentation content for this extension.
         // If not present, offer no link.
-        docsURI: 'https://....',
+        docsURI: 'https://cloud.scratch.mit.edu/docs',
 
         // Required: the list of blocks implemented by this extension,
         // in the order intended for display.
         blocks: [
             {
-                opcode: 'example-noop',
+                opcode: 'startprocess',
                 blockType: Scratch.BlockType.COMMAND,
                 blockAllThreads: false,
-                text: 'do nothing',
-                func: 'noop'
+                text: 'Start cloud listening',
+                func: 'startcloudlistenung'
             },
             {
-                opcode: 'example-conditional',
+                opcode: 'addrhingmanytimes1',
                 blockType: Scratch.BlockType.CONDITIONAL,
-                branchCount: 4,
+                branchCount: 1,
                 isTerminal: true,
                 blockAllThreads: false,
-                text: 'choose [BRANCH]',
+                text: 'add [THING] with [BRANCH] times',
                 arguments: {
+
                     BRANCH: {
                         type: Scratch.ArgumentType.NUMBER,
                         defaultValue: 1
                     }
                 },
-                func: 'noop'
+                func: 'addthingmanytimes'
             },
             {
                 // Required: the machine-readable name of this operation.
